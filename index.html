@@ -6,60 +6,157 @@
     <title>Quiz Me If You Can</title>
 </head>
 <body>
-<h1>Quiz Me if You Can</h1>  
-<form id="quiz-form">  
-   
-<!--First question-->
 
-<fieldset>
-   <legend>What color do you prefer? </legend>
+<h1>Quiz Me if You Can</h1>
 
-            <input type="radio" id="Green" name="q1" value="Green">
-            <label for="Green">Green</label><br>
+<form id="quiz-form">
 
-            <input type="radio" id="Red" name="q1" value="Red">
-            <label for="Red">Red</label><br>
+    <fieldset>
+       <legend>What color do you prefer?</legend>
 
-            <input type="radio" id="Yellow" name="q1" value="Yellow">
-            <label for="Yellow">Yelllow</label><br>
-</fieldset>
+            <input type="radio" id="q1_green" name="q1" value="Green">
+            <label for="q1_green">Green</label><br>
 
-<!--Second question-->
-<fieldset>
-   <legend> Which beverage would you choose? </legend>
+            <input type="radio" id="q1_red" name="q1" value="Red">
+            <label for="q1_red">Red</label><br>
 
-            <input type="radio" id="Coffee" name="q2" value="Option 1">
-            <label for="option1">Coffee</label><br>
+            <input type="radio" id="q1_yellow" name="q1" value="Yellow">
+            <label for="q1_yellow">Yellow</label><br>
+    </fieldset>
 
-            <input type="radio" id="Tea" name="q2" value="Option 2">
-            <label for="option2">Tea</label><br>
+    <fieldset>
+       <legend> Which beverage would you choose? </legend>
 
-            <input type="radio" id="Beer" name="q2" value="Option 3">
-            <label for="option3">Beer</label><br>
-</fieldset>
+            <input type="radio" id="q2_coffee" name="q2" value="Coffee">
+            <label for="q2_coffee">Coffee</label><br>
 
-<!--Third question-->
+            <input type="radio" id="q2_tea" name="q2" value="Tea">
+            <label for="q2_tea">Tea</label><br>
 
-<fieldset>
-   <legend>What is your ideal social seting?</legend>  
+            <input type="radio" id="q2_beer" name="q2" value="Beer">
+            <label for="q2_beer">Beer</label><br>
+    </fieldset>
 
-            <input type="radio" id="Quiet" name="q3" value="Option 1">
-            <label for="option1">A quiet gathering with a few friends</label><br>
+    <fieldset>
+       <legend>What is your ideal social setting?</legend>
 
-            <input type="radio" id="Active" name="q3" value="Option 2">
-            <label for="option2">A structured activity, like a game night</label><br>
+            <input type="radio" id="q3_quiet" name="q3" value="Quiet">
+            <label for="q3_quiet">A quiet gathering with a few friends</label><br>
 
-            <input type="radio" id="Party" name="q3" value="Option 3">
-            <label for="option3">A big party</label><br>
-</fieldset>
+            <input type="radio" id="q3_game" name="q3" value="GameNight">
+            <label for="q3_game">A structured activity, like a game night</label><br>
 
-<!--Submit button here-->
-<button type="submit">Submit Quiz!</button>
+            <input type="radio" id="q3_party" name="q3" value="Party">
+            <label for="q3_party">A big party</label><br>
+    </fieldset>
+
+    <button type="submit">Submit Quiz!</button>
 
 </form>
 
-<!--Results here (empty for now)-->
-<section id ="results"> </section>
+<div id="results">
+    </div>
+<script>
+    // 1. Get references to the HTML elements we need to interact with
+    const quizForm = document.getElementById('quiz-form');
+    const resultsArea = document.getElementById('results');
 
+    // 2. Add an Event Listener to the form
+    // When the form is submitted (by clicking the button), run the function 'calculateResult'
+    quizForm.addEventListener('submit', calculateResult);
+
+    // 3. Define the main function to handle the quiz submission
+    function calculateResult(event) {
+        // PREVENTS the default form submission (which reloads the page)
+        event.preventDefault(); 
+        
+        // Object to store the scores for each potential personality
+        let scores = {
+            "Carrot": 0,
+            "Spinach": 0,
+            "Potato": 0
+        };
+
+        // 4. Get the answers from the form data
+        // FormData is an easy way to read all the values from a form
+        const formData = new FormData(quizForm);
+
+        // Map the answers (by question 'name') to the corresponding score increments
+        // We are only interested in the value of the selected radio button for each question (q1, q2, q3)
+
+        // Question 1 Logic
+        switch (formData.get('q1')) {
+            case 'Green':
+                scores.Carrot += 1;
+                break;
+            case 'Red':
+                scores.Spinach += 1;
+                break;
+            case 'Yellow':
+                scores.Potato += 1;
+                break;
+        }
+
+        // Question 2 Logic
+        switch (formData.get('q2')) {
+            case 'Coffee':
+                scores.Carrot += 1;
+                break;
+            case 'Tea':
+                scores.Spinach += 1;
+                break;
+            case 'Beer':
+                scores.Potato += 1;
+                break;
+        }
+
+        // Question 3 Logic
+        switch (formData.get('q3')) {
+            case 'Quiet':
+                scores.Carrot += 1;
+                break;
+            case 'GameNight':
+                scores.Spinach += 1;
+                break;
+            case 'Party':
+                scores.Potato += 1;
+                break;
+        }
+
+        // 5. Determine the highest score (the personality winner)
+        let winningPersonality = "Undetermined";
+        let maxScore = -1;
+        
+        for (const vegetable in scores) {
+            if (scores[vegetable] > maxScore) {
+                maxScore = scores[vegetable];
+                winningPersonality = vegetable;
+            }
+        }
+        
+        // Handle a tie (if all scores are the same, e.g., 1-1-1)
+        if (maxScore === 1) { // If everyone has 1 point, it's a perfect tie (3-question quiz)
+             winningPersonality = "Tomato"; // The versatile, friendly tie-breaker vegetable!
+        }
+        
+        // 6. Define the final result messages
+        let resultMessage = '';
+        
+        if (winningPersonality === "Carrot") {
+            resultMessage = "You’re a Carrot: bright, crunchy, and grounded in your goals!";
+        } else if (winningPersonality === "Spinach") {
+            resultMessage = "You’re Spinach: quick, adaptable, and packed with hidden energy!";
+        } else if (winningPersonality === "Potato") {
+            resultMessage = "You’re a Potato: comforting, versatile, and the foundation of any great social gathering!";
+        } else if (winningPersonality === "Tomato") {
+             resultMessage = "You’re a Tomato: You're versatile and balanced! Are you a fruit or a vegetable? It depends on the day!";
+        } else {
+             resultMessage = "Please answer all questions to discover your vegetable personality!";
+        }
+        
+        // 7. Display the result in the results area
+        resultsArea.innerHTML = `<h2>Your Personality:</h2><p>${resultMessage}</p>`;
+    }
+</script>
 </body>
 </html>
