@@ -14,11 +14,11 @@
     <fieldset>
        <legend>What color do you prefer?</legend>
 
-            <input type="radio" id="q1_green" name="q1" value="Green">
-            <label for="q1_green">Green</label><br>
-
             <input type="radio" id="q1_red" name="q1" value="Red">
             <label for="q1_red">Red</label><br>
+
+            <input type="radio" id="q1_green" name="q1" value="Green">
+            <label for="q1_green">Green</label><br>
 
             <input type="radio" id="q1_yellow" name="q1" value="Yellow">
             <label for="q1_yellow">Yellow</label><br>
@@ -43,11 +43,11 @@
             <input type="radio" id="q3_quiet" name="q3" value="Quiet">
             <label for="q3_quiet">A quiet gathering with a few friends</label><br>
 
+            <input type="radio" id="q3_paty" name="q3" value="Party">
+            <label for="q3_party">A big partyt</label><br>
+
             <input type="radio" id="q3_game" name="q3" value="GameNight">
             <label for="q3_game">A structured activity, like a game night</label><br>
-
-            <input type="radio" id="q3_party" name="q3" value="Party">
-            <label for="q3_party">A big party</label><br>
     </fieldset>
 
     <button type="submit">Submit Quiz!</button>
@@ -86,10 +86,10 @@
 
         // Question 1 Logic
         switch (formData.get('q1')) {
-            case 'Green':
+            case 'Red':
                 scores.Carrot += 1;
                 break;
-            case 'Red':
+            case 'Green':
                 scores.Spinach += 1;
                 break;
             case 'Yellow':
@@ -115,10 +115,10 @@
             case 'Quiet':
                 scores.Carrot += 1;
                 break;
-            case 'GameNight':
+            case 'Party':
                 scores.Spinach += 1;
                 break;
-            case 'Party':
+            case 'GameNight':
                 scores.Potato += 1;
                 break;
         }
