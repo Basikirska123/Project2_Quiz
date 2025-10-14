@@ -57,7 +57,10 @@
 
 <div id="results">
     </div>
-<script>
+
+<!-- Adding JAVASCRIPT code here for now to structure CSS -->
+ 
+    <script>
     // 1. Get references to the HTML elements we need to interact with
     const quizForm = document.getElementById('quiz-form');
     const resultsArea = document.getElementById('results');
@@ -147,26 +150,30 @@
         if (winningPersonality === "Carrot") {
             resultMessage = "You’re a Carrot: bright, crunchy, and grounded in your goals!";
             // Pievieno attēla HTML ar avotu uz 'carrot.png'
-            resultImageHTML = '<img src="carrot.jpg" alt="Carrot vegetable illustration" class="result-image">';
+            resultImageHTML = '<img src="./img/carrot.jpg" alt="Carrot illustration" width="200" height="200" class="result-image">';
         } else if (winningPersonality === "Spinach") {
             resultMessage = "You’re Spinach: quick, adaptable, and packed with hidden energy!";
             // Pievieno attēla HTML ar avotu uz 'spinach.png'
-            resultImageHTML = '<img src="spinach.jpg" alt="Spinach vegetable illustration" class="result-image">';
+            resultImageHTML = '<img src="./img/spinach.jpg" alt="Spinach illustration" width="200" height="200" class="result-image">';
         } else if (winningPersonality === "Potato") {
             resultMessage = "You’re a Potato: comforting, versatile, and the foundation of any great social gathering!";
             // Pievieno attēla HTML ar avotu uz 'potato.png'
-            resultImageHTML = '<img src="potato.jpg" alt="Potato vegetable illustration" class="result-image">';
+            resultImageHTML = '<img src="./img/potato.jpg" alt="Potato illustration" width="200" height="200" class="result-image">';           
         } else if (winningPersonality === "Tomato") {
              resultMessage = "You’re a Tomato: You're versatile and balanced! Are you a fruit or a vegetable? It depends on the day!";
              // Pievieno attēla HTML ar avotu uz 'tomato.png'
-             resultImageHTML = '<img src="tomato.jpg" alt="Tomato vegetable illustration" class="result-image">';
+             resultImageHTML = '<img src="./img/tomato.jpg" alt="Tomato illustration" width="200" height="200" class="result-image">';
         } else {
              resultMessage = "Please answer all questions to discover your vegetable personality!";
              resultImageHTML = ''; // Nav attēla, ja nav atbildes
         }
         
         // 7. Display the result in the results area
-        resultsArea.innerHTML = `<h2>Your Personality:</h2><p>${resultMessage}</p>`;
+        resultsArea.innerHTML = `
+            <h2>Your Personality:</h2>
+            ${resultImageHTML}
+            <p>${resultMessage}</p>
+        `;
     }
 </script>
 </body>

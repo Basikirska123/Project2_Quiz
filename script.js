@@ -50,5 +50,4 @@ function calculateResults(event) {
       scores.Potato += 1;
       break;
   }
-
-}
+  
