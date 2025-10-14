@@ -74,6 +74,5 @@ button[type="submit"]:hover {
     border: 3px dashed #4CAF50;
     padding: 20px;
     border-radius: 10px;
-    /* Parāda to ar sākotnējo zīmi, lai tas izceltos (līdzīgi kā iekrāsojums) */
     background-color: #e8f5e9;
 }
