@@ -1,0 +1,125 @@
+/* 1. VISPĀRĪGA IESTATĪŠANA (BODY) */
+/* Iestata lapas fonu, fontu un teksta krāsu. */
+body {
+    /* Piešķir lapai viegli krēmīgu fonu (nevis blāvi baltu) */
+    background-color: #f0fff0;
+    /* Maina noklusējuma fontu uz kaut ko tīru un viegli lasāmu */
+    font-family: Arial, sans-serif;
+    /* Iestata tumšu teksta krāsu (gandrīz melnu) */
+    color: #333;
+    /* Centrē saturu lapā (ja loga platums nav pārāk liels) */
+    max-width: 800px;
+    /* Nodrošina centrēšanu, izmantojot automātiskās malas */
+    margin: 40px auto;
+    /* Pievieno nelielu polsterējumu ap malām */
+    padding: 20px;
+}
+
+/* 2. VIKTORĪNAS KONTEINERA STILIZĒŠANA (FORM) */
+/* Stilizē pašu viktorīnas formu, lai tā izceltos. */
+#quiz-form {
+    /* Piešķir formai baltu fonu, lai tā izceltos uz krēmīgā fona */
+    background-color: #ffffff;
+    /* Pievieno polsterējumu formas iekšpusē */
+    padding: 30px;
+    /* Noapaļo stūrus, lai izskatītos maigāk */
+    border-radius: 15px;
+    /* Pievieno nelielu ēnu, lai forma izskatītos pacelta (rotaļīgs efekts) */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 3. VIRSRAKSTU STILIZĒŠANA (H1, LEGEND) */
+h1 {
+    /* Centrē galveno virsrakstu */
+    text-align: center;
+    /* Piešķir jautru krāsu virsrakstam */
+    color: #4CAF50; /* Atdzimis zaļš */
+    /* Pievieno nelielu apakšējo malu */
+    margin-bottom: 30px;
+}
+
+/* Stilizē jautājumu virsrakstus (legend) */
+legend {
+    /* Piešķir atšķirīgu, bet jautru krāsu */
+    color: #FFA500; /* Spilgti oranžs */
+    /* Palielina fonta izmēru, lai uzsvērtu jautājumu */
+    font-size: 1.2em;
+    /* Padara tekstu treknrakstā */
+    font-weight: bold;
+    /* Pievieno polsterējumu, lai ap legend būtu vieta */
+    padding: 0 10px;
+}
+
+/* 4. ATBILŽU GRUPU STILIZĒŠANA (FIELDSET) */
+fieldset {
+    /* Nodrošina vietu starp katru jautājumu */
+    margin-bottom: 25px;
+    /* Piešķir laukuma kopumam cietu robežu (noklusējuma vienmēr ir) */
+    border: 2px solid #ddd;
+    /* Noapaļo stūrus */
+    border-radius: 10px;
+    /* Pievieno polsterējumu laukuma kopuma iekšpusē */
+    padding: 15px;
+}
+
+/* 5. ETIĶEŠU STILIZĒŠANA (LABEL) */
+/* Padara atbilžu iespējas uzskatāmākas */
+label {
+    /* Padara etiķeti klikšķināmu un palielina tās trāpījuma zonu */
+    display: inline-block;
+    /* Pievieno nedaudz vietas zem katras etiķetes */
+    margin-bottom: 8px;
+    /* Palielina fonta izmēru, lai uzlabotu lasāmību */
+    font-size: 1.1em;
+    /* Pievieno nedaudz polsterējuma, lai teksts nebūtu pārāk tuvu radio pogai */
+    padding-left: 5px;
+}
+
+/* 6. POGAS STILIZĒŠANA (BUTTON) */
+button[type="submit"] {
+    /* Iestata jautru, atšķirīgu fona krāsu */
+    background-color: #FF6347; /* Spilgti sarkans */
+    /* Iestata baltu teksta krāsu */
+    color: white;
+    /* Noņem noklusējuma rāmi */
+    border: none;
+    /* Pievieno polsterējumu, lai poga izskatītos lielāka un vieglāk klikšķināma */
+    padding: 15px 25px;
+    /* Noapaļo stūrus */
+    border-radius: 8px;
+    /* Padara fontu treknrakstā un lielāku */
+    font-size: 1.1em;
+    font-weight: bold;
+    /* Pilns platums, lai poga būtu pamanāma */
+    width: 100%;
+    /* Maina kursoru, lai parādītu, ka tā ir klikšķināma poga */
+    cursor: pointer;
+    /* Pievieno nelielu pārejas efektu, lai uzlabotu lietotāja pieredzi */
+    transition: background-color 0.3s;
+}
+
+/* POGAS HOVER EFEKTS (Kad pele ir virs tās) */
+button[type="submit"]:hover {
+    /* Padara krāsu tumšāku, lai norādītu, ka uz pogas var uzklikšķināt */
+    background-color: #E74C3C;
+}
+
+/* 7. REZULTĀTU ZONAS STILIZĒŠANA (#RESULTS) */
+#results {
+    /* Nodrošina vietu starp formu un rezultātiem */
+    margin-top: 30px;
+    /* Centrē tekstu */
+    text-align: center;
+    /* Palielina teksta izmēru */
+    font-size: 1.2em;
+    /* Padara tekstu treknrakstā */
+    font-weight: bold;
+    /* Piešķir rezultātu zonai rāmi */
+    border: 3px dashed #4CAF50;
+    /* Pievieno polsterējumu */
+    padding: 20px;
+    /* Noapaļo stūrus */
+    border-radius: 10px;
+    /* Parāda to ar sākotnējo zīmi, lai tas izceltos (līdzīgi kā iekrāsojums) */
+    background-color: #e8f5e9;
+}
